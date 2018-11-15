@@ -7,19 +7,19 @@
   
   <title>隆平基础服务平台部署文档 | 苟利国家生死以 其因祸福驱避之</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：服务器 | 部署服务—-  |  —-A | zookeeper主节点/CPI/网关B | zookeeper从属节点/农户服务/客商服务C | zookeeper从属节点/农户服务/客商服务D | zookeeper从属节点/农户服务/客商服务E | CPI/dubbo控制台/网关  dubbo平台安装 安装">
+  <meta name="description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：     服务器 部署服务     A zookeeper主节点/CPI/网关   B zookeeper从属节点/农户服务/客商服务   C zookeeper从属节点/农户服务/客商服务   D zookeeper从属节点/农户服务/客商服务   E CPI/dubbo控制台/网关    dubbo平台安装">
 <meta name="keywords" content="java,实施">
 <meta property="og:type" content="article">
 <meta property="og:title" content="隆平基础服务平台部署文档">
 <meta property="og:url" content="http://yoursite.com/2018/11/15/隆平基础服务平台部署文档/index.html">
 <meta property="og:site_name" content="苟利国家生死以 其因祸福驱避之">
-<meta property="og:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：服务器 | 部署服务—-  |  —-A | zookeeper主节点/CPI/网关B | zookeeper从属节点/农户服务/客商服务C | zookeeper从属节点/农户服务/客商服务D | zookeeper从属节点/农户服务/客商服务E | CPI/dubbo控制台/网关  dubbo平台安装 安装">
+<meta property="og:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：     服务器 部署服务     A zookeeper主节点/CPI/网关   B zookeeper从属节点/农户服务/客商服务   C zookeeper从属节点/农户服务/客商服务   D zookeeper从属节点/农户服务/客商服务   E CPI/dubbo控制台/网关    dubbo平台安装">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/lpht_20181115.jpg">
-<meta property="og:updated_time" content="2018-11-15T08:53:43.178Z">
+<meta property="og:updated_time" content="2018-11-15T08:55:17.993Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隆平基础服务平台部署文档">
-<meta name="twitter:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：服务器 | 部署服务—-  |  —-A | zookeeper主节点/CPI/网关B | zookeeper从属节点/农户服务/客商服务C | zookeeper从属节点/农户服务/客商服务D | zookeeper从属节点/农户服务/客商服务E | CPI/dubbo控制台/网关  dubbo平台安装 安装">
+<meta name="twitter:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：     服务器 部署服务     A zookeeper主节点/CPI/网关   B zookeeper从属节点/农户服务/客商服务   C zookeeper从属节点/农户服务/客商服务   D zookeeper从属节点/农户服务/客商服务   E CPI/dubbo控制台/网关    dubbo平台安装">
 <meta name="twitter:image" content="http://yoursite.com/images/lpht_20181115.jpg">
   
     <link rel="alternate" href="/atom.xml" title="苟利国家生死以 其因祸福驱避之" type="application/atom+xml">
@@ -99,8 +99,38 @@
       
         <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h3 id="服务器准备"><a href="#服务器准备" class="headerlink" title="服务器准备"></a>服务器准备</h3><ul>
 <li>准备服务器 4台，以下分别以A/B/C/D/E标记</li>
-<li>应用服务器规划：<br>服务器 | 部署服务<br>—-  |  —-<br>A | zookeeper主节点/CPI/网关<br>B | zookeeper从属节点/农户服务/客商服务<br>C | zookeeper从属节点/农户服务/客商服务<br>D | zookeeper从属节点/农户服务/客商服务<br>E | CPI/dubbo控制台/网关</li>
+<li>应用服务器规划：</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>服务器</th>
+<th>部署服务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>zookeeper主节点/CPI/网关</td>
+</tr>
+<tr>
+<td>B</td>
+<td>zookeeper从属节点/农户服务/客商服务</td>
+</tr>
+<tr>
+<td>C</td>
+<td>zookeeper从属节点/农户服务/客商服务</td>
+</tr>
+<tr>
+<td>D</td>
+<td>zookeeper从属节点/农户服务/客商服务</td>
+</tr>
+<tr>
+<td>E</td>
+<td>CPI/dubbo控制台/网关</td>
+</tr>
+</tbody>
+</table>
 <h3 id="dubbo平台安装"><a href="#dubbo平台安装" class="headerlink" title="dubbo平台安装"></a>dubbo平台安装</h3><ol>
 <li>安装zookeeper（<em>具体安装步骤参考官网资料</em>）<ul>
 <li>安装zookeeper</li>
