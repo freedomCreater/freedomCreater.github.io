@@ -93,12 +93,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h1><h3 id="服务器准备"><a href="#服务器准备" class="headerlink" title="服务器准备"></a>服务器准备</h3><ul>
-<li>准备服务器 4台，以下分别以A/B/C/D标记<h3 id="dubbo平台安装"><a href="#dubbo平台安装" class="headerlink" title="dubbo平台安装"></a>dubbo平台安装</h3></li>
+<li>准备服务器 4台，以下分别以A/B/C/D/E标记</li>
+<li>应用服务器规划：<br>服务器 | 部署服务<br>—-  |  —-<br>A | zookeeper主节点/CPI/网关<br>B | zookeeper从属节点/农户服务/客商服务<br>C | zookeeper从属节点/农户服务/客商服务<br>D | zookeeper从属节点/农户服务/客商服务<br>E | CPI/dubbo控制台/网关</li>
 </ul>
-<ol>
-<li>安装zookeeper<ul>
-<li>在A/B/C三台服务器上安装zookeeper</li>
-<li>将A 服务器设为主节点，B/C设为从属节点</li>
+<h3 id="dubbo平台安装"><a href="#dubbo平台安装" class="headerlink" title="dubbo平台安装"></a>dubbo平台安装</h3><ol>
+<li>安装zookeeper（<em>具体安装步骤参考官网资料</em>）<ul>
+<li>安装zookeeper</li>
+<li>编辑配置文件，设置主从节点</li>
 <li>启动zookeeper服务</li>
 </ul>
 </li>
