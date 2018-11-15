@@ -16,7 +16,7 @@
 <meta property="og:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D标记dubbo平台安装   安装zookeeper 在A/B/C三台服务器上安装zookeeper 将A 服务器设为主节点，B/C设为从属节点 启动zookeeper服务   设置配置中心  启动zookeeper客户端&amp;gt; 建议使用zookeeper监视器（zookeeper-dev-ZooInspector.jar） 在根目录下">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/lpht_20181115.jpg">
-<meta property="og:updated_time" content="2018-11-15T08:30:05.770Z">
+<meta property="og:updated_time" content="2018-11-15T08:31:58.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="隆平基础服务平台部署文档">
 <meta name="twitter:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D标记dubbo平台安装   安装zookeeper 在A/B/C三台服务器上安装zookeeper 将A 服务器设为主节点，B/C设为从属节点 启动zookeeper服务   设置配置中心  启动zookeeper客户端&amp;gt; 建议使用zookeeper监视器（zookeeper-dev-ZooInspector.jar） 在根目录下">
@@ -171,9 +171,71 @@
 <ul>
 <li><p>编辑bsci_client配置</p>
   <figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">	&#123;</span><br><span class="line">    <span class="attr">"auth.clientCode"</span>: <span class="string">"BS_CONFIG_CENTER"</span>, </span><br><span class="line">    <span class="attr">"auth.inLoginUrl"</span>: <span class="string">"http://192.168.128.107:8088/cas/login?service=http://192.168.129.159:9080/bsci/cas&amp;CLIENT_CODE=BS_CONFIG_CENTER"</span>, </span><br><span class="line">    <span class="attr">"auth.outLoginUrl"</span>: <span class="string">"http://192.168.128.107:8088/cas/login?service=http://192.168.129.159:9080/bsci/cas&amp;CLIENT_CODE=BS_CONFIG_CENTER"</span>, </span><br><span class="line">    <span class="attr">"auth.unauthorizedUrl"</span>: <span class="string">"http://localhost:8080/sales/platform/index.do"</span>, </span><br><span class="line">    <span class="attr">"auth.inCasserverUrlPrefix"</span>: <span class="string">"http://192.168.128.107:8088/cas"</span>, </span><br><span class="line">    <span class="attr">"auth.outCasserverUrlPrefix"</span>: <span class="string">"http://192.168.128.107:8088/cas"</span>, </span><br><span class="line">    <span class="attr">"auth.inCasService"</span>: <span class="string">"http://192.168.129.159:9080/bsci/cas"</span>, </span><br><span class="line">    <span class="attr">"auth.outCasService"</span>: <span class="string">"http://192.168.129.159:9080/bsci/cas"</span>, </span><br><span class="line">    <span class="attr">"auth.inLogoutUrl"</span>: <span class="string">"http://192.168.128.107:8088/cas/logout?service=http://192.168.129.159:9080/bsci/logout&amp;CLIENT_CODE=BS_CONFIG_CENTER"</span>, </span><br><span class="line">    <span class="attr">"auth.outLogoutUrl"</span>: <span class="string">"http://192.168.128.107:8088/cas/logout?service=http://192.168.129.159:9080/bsci/logout&amp;CLIENT_CODE=BS_CONFIG_CENTER"</span>, </span><br><span class="line">    <span class="attr">"auth.wsGetUserAuthInfo"</span>: <span class="string">"http://192.168.128.107:8088/sysManager/webservice/authService/getUserInfo"</span>, </span><br><span class="line">    <span class="attr">"auth.ipSegment"</span>: <span class="string">"10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.0.0.0-192.168.255.255/172.10.0.0-172.31.255.255/127.0.0.1-127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"userdata.fileUploadPath"</span>:<span class="string">"/home/jiaoqx/app/tempFile"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>  <strong>配置项参数说明</strong><br>配置项 | 说明<br>—- | —-<br>auth.clientCode | 系统管理注册的编码<br>auth.inLoginUrl | 内网sso Url<br>auth.outLoginUrl | 外网 sso url<br>auth.unauthorizedUrl  | 未授权提示页面<br>auth.inCasserverUrlPrefix |  内网cas服务地址前缀<br>auth.outCasserverUrlPrefix | 外网cas服务地址前缀<br>auth.inCasService | 内网cas服务地址<br>auth.outCasService | 外网cas 服务地址<br>auth.inLogoutUrl | 内网单点登出Url<br>auth.outLogoutUrl | 外网单点登出Url<br>auth.wsGetUserAuthInfo | 获取登录权限信息接口<br>auth.ipSegment | 内外网ip判断ip段<br>userdata.fileUploadPath | 文件上传地址 （配置为应用部署服务器的绝对路径）</p>
+<p>  <strong>配置项参数说明</strong></p>
 </li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>auth.clientCode</td>
+<td>系统管理注册的编码</td>
+</tr>
+<tr>
+<td>auth.inLoginUrl</td>
+<td>内网sso Url </td>
+</tr>
+<tr>
+<td>auth.outLoginUrl</td>
+<td>外网 sso url</td>
+</tr>
+<tr>
+<td>auth.unauthorizedUrl</td>
+<td>未授权提示页面</td>
+</tr>
+<tr>
+<td>auth.inCasserverUrlPrefix</td>
+<td>内网cas服务地址前缀</td>
+</tr>
+<tr>
+<td>auth.outCasserverUrlPrefix</td>
+<td>外网cas服务地址前缀</td>
+</tr>
+<tr>
+<td>auth.inCasService</td>
+<td>内网cas服务地址</td>
+</tr>
+<tr>
+<td>auth.outCasService</td>
+<td>外网cas 服务地址</td>
+</tr>
+<tr>
+<td>auth.inLogoutUrl</td>
+<td>内网单点登出Url</td>
+</tr>
+<tr>
+<td>auth.outLogoutUrl</td>
+<td>外网单点登出Url</td>
+</tr>
+<tr>
+<td>auth.wsGetUserAuthInfo</td>
+<td>获取登录权限信息接口</td>
+</tr>
+<tr>
+<td>auth.ipSegment</td>
+<td>内外网ip判断ip段</td>
+</tr>
+<tr>
+<td>userdata.fileUploadPath</td>
+<td>文件上传地址 （配置为应用部署服务器的绝对路径）</td>
+</tr>
+</tbody>
+</table>
 <ol start="3">
 <li>安装dubbo控制台</li>
 </ol>
