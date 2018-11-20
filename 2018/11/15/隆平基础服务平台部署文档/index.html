@@ -16,7 +16,7 @@
 <meta property="og:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：     服务器 部署服务     A zookeeper主节点/CPI/网关   B zookeeper从属节点/农户服务/客商服务   C zookeeper从属节点/农户服务/客商服务   D zookeeper从属节点/农户服务/客商服务   E CPI/dubbo控制台/网关    dubbo平台安装">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/lpht_20181115.jpg">
-<meta property="og:updated_time" content="2018-11-15T09:04:22.259Z">
+<meta property="og:updated_time" content="2018-11-20T03:41:34.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基础服务平台部署文档">
 <meta name="twitter:description" content="环境准备服务器准备 准备服务器 4台，以下分别以A/B/C/D/E标记 应用服务器规划：     服务器 部署服务     A zookeeper主节点/CPI/网关   B zookeeper从属节点/农户服务/客商服务   C zookeeper从属节点/农户服务/客商服务   D zookeeper从属节点/农户服务/客商服务   E CPI/dubbo控制台/网关    dubbo平台安装">
@@ -263,7 +263,19 @@
 </tbody>
 </table>
 <ol start="3">
-<li>安装dubbo控制台</li>
+<li><p>安装dubbo控制台</p>
+<p>目前版本的管理控制台正在开发中，已经完成了服务查询和服务治理的功能，采用前后端分离的模式，具体的安装和使用步骤如下：</p>
+<p>安装:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/apache/incubator-dubbo-ops.git /var/tmp/dubbo-ops</span><br><span class="line">cd /var/tmp/dubbo-ops</span><br><span class="line">mvn clean package</span><br></pre></td></tr></table></figure>
+<p>配置 :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">配置文件为：</span><br><span class="line">dubbo-admin-backend/src/main/resources/application.properties</span><br><span class="line">主要的配置有：</span><br><span class="line">dubbo.registry.address=zookeeper://192.168.129.157:2181</span><br></pre></td></tr></table></figure>
+<p>启动:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn --projects dubbo-admin-backend spring-boot:run</span><br></pre></td></tr></table></figure>
+<p>其他配置请访问github中的文档:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/apache/incubator-dubbo-ops</span><br></pre></td></tr></table></figure>
+<p>访问:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1:8080</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="jdk安装"><a href="#jdk安装" class="headerlink" title="jdk安装"></a>jdk安装</h3><pre><code>服务器必须安装jdk1.8版本
 </code></pre><h3 id="elb网关组件安装"><a href="#elb网关组件安装" class="headerlink" title="elb网关组件安装"></a>elb网关组件安装</h3><h1 id="版本包部署"><a href="#版本包部署" class="headerlink" title="版本包部署"></a>版本包部署</h1><p><strong>版本包采用jar包部署</strong>，内置tomcat容器，无需再安装应用服务器</p>
