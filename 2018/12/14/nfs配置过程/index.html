@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>nfs配置过程 | 投石问路</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="NFS 共享存储配置过程机器准备 主机192.168.129.159  客户端1 192.168.129.162  客户端2 192.168.129.163  安装12yum install -y nfs-utils  rpcbindcat /etc/exports 建立主机共享目录12mkdir  -p /home/jiaoqx/app/sharechown -R nfsnobody:nfsno">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nfs配置过程">
+<meta property="og:url" content="http://yoursite.com/2018/12/14/nfs配置过程/index.html">
+<meta property="og:site_name" content="投石问路">
+<meta property="og:description" content="NFS 共享存储配置过程机器准备 主机192.168.129.159  客户端1 192.168.129.162  客户端2 192.168.129.163  安装12yum install -y nfs-utils  rpcbindcat /etc/exports 建立主机共享目录12mkdir  -p /home/jiaoqx/app/sharechown -R nfsnobody:nfsno">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-14T09:18:56.165Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nfs配置过程">
+<meta name="twitter:description" content="NFS 共享存储配置过程机器准备 主机192.168.129.159  客户端1 192.168.129.162  客户端2 192.168.129.163  安装12yum install -y nfs-utils  rpcbindcat /etc/exports 建立主机共享目录12mkdir  -p /home/jiaoqx/app/sharechown -R nfsnobody:nfsno">
+  
+    <link rel="alternate" href="/atom.xml" title="投石问路" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">投石问路</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-nfs配置过程" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/14/nfs配置过程/" class="article-date">
+  <time datetime="2018-12-14T09:18:15.000Z" itemprop="datePublished">2018-12-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      nfs配置过程
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="NFS-共享存储配置过程"><a href="#NFS-共享存储配置过程" class="headerlink" title="NFS 共享存储配置过程"></a>NFS 共享存储配置过程</h1><h2 id="机器准备"><a href="#机器准备" class="headerlink" title="机器准备"></a>机器准备</h2><ul>
+<li><p>主机192.168.129.159</p>
+</li>
+<li><p>客户端1 192.168.129.162</p>
+</li>
+<li>客户端2 192.168.129.163</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install -y nfs-utils  rpcbind</span><br><span class="line">cat /etc/exports</span><br></pre></td></tr></table></figure>
+<h2 id="建立主机共享目录"><a href="#建立主机共享目录" class="headerlink" title="建立主机共享目录"></a>建立主机共享目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir  -p /home/jiaoqx/app/share</span><br><span class="line">chown -R nfsnobody:nfsnobody /home/jiaoqx/app/share</span><br></pre></td></tr></table></figure>
+<h2 id="配置主机的挂载目录"><a href="#配置主机的挂载目录" class="headerlink" title="配置主机的挂载目录"></a>配置主机的挂载目录</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/jiaoqx/app/share  192.168.129.162(rw)  192.168.129.163(rw，sync)</span><br></pre></td></tr></table></figure>
+<p>配置参数：</p>
+<p>rw： 读写</p>
+<p>ro ：只读</p>
+<p>sync：将数据同步写入内存缓冲区与磁盘中，效率低，但可以保证数据的一致性；</p>
+<p>async：是大数据时使用，是先写到缓存区，必要时再写到磁盘里。</p>
+<p>all_squash：所有访问用户都映射为匿名用户或用户组；<br>no_all_squash（默认）：访问用户先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；</p>
+<p>root_squash（默认）：将来访的root用户映射为匿名用户或用户组；</p>
+<p>no_root_squash：来访的root用户保持root帐号权限；</p>
+<p>wdelay（默认）：检查是否有相关的写操作，如果有则将这些写操作一起执行，这样可以提高效率；</p>
+<p>no_wdelay：若有写操作则立即执行，应与sync配合使用；</p>
+<p>subtree_check ：若输出目录是一个子目录，则nfs服务器将检查其父目录的权限；</p>
+<p>no_subtree_check（默认）：即使输出目录是一个子目录，nfs服务器也不检查其父目录的权限，这样可以提高效率；</p>
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>先启动 rpcbind 后启动 nfs</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service rpcbind start</span><br><span class="line">service nfs start</span><br></pre></td></tr></table></figure>
+<p>让nfs开机启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chkconfig rpcbind on</span><br><span class="line">chkconfig nfs on</span><br></pre></td></tr></table></figure>
+<h2 id="查看共享文件服务配置"><a href="#查看共享文件服务配置" class="headerlink" title="查看共享文件服务配置"></a>查看共享文件服务配置</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">showmount -e 192.168.129.159</span><br></pre></td></tr></table></figure>
+<h2 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h2><ol>
+<li><p>安装nfs服务</p>
+</li>
+<li><p>建立挂在共享的目录，然后执行挂载命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/jiaoqx/app/tmp/files</span><br><span class="line">mount -t nfs 192.168.129.159:/home/jiaoqx/app/share /home/jiaoqx/app/tmp/files</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="修改主机挂载目录后客户端重新挂载"><a href="#修改主机挂载目录后客户端重新挂载" class="headerlink" title="修改主机挂载目录后客户端重新挂载"></a>修改主机挂载目录后客户端重新挂载</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">umount -f /home/jiaoqx/app/tmp/files</span><br><span class="line">mount -t nfs 192.168.129.159:/home/jiaoqx/app/share /home/jiaoqx/app/tmp/files</span><br><span class="line">service rpcbind restart</span><br><span class="line">service nfs restart</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/14/nfs配置过程/" data-id="cjpntmccu0000fkjawor1f1y6" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/15/隆平基础服务平台部署文档/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">基础服务平台部署文档</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/工作/">工作</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/实施/">实施</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/实施/" style="font-size: 10px;">实施</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/11/">November 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/12/14/nfs配置过程/">nfs配置过程</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/15/隆平基础服务平台部署文档/">基础服务平台部署文档</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/13/myblog/">myblog</a>
+          </li>
+        
+          <li>
+            <a href="/2018/11/13/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jiaoqx<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
